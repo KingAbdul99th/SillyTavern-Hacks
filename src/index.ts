@@ -21,6 +21,7 @@ function main() {
                         .join(' ');
                 },
                 aliases: ["example-hack-command"],
+                returns: 'the repeated text',
                 namedArgumentList: [
                     SlashCommandNamedArgument.fromProps({
                         name: "times",
