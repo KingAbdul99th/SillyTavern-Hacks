@@ -1,0 +1,12 @@
+{
+    "display_name": "SillyTavern-Hacks",
+    "loading_order": 1,
+    "requires": [],
+    "optional": [],
+    "js": "dist/index.js",
+    "css": "",
+    "author": "KingAbdul99th",
+    "version": "0.1.0",
+    "homePage": "https://github.com/KingAbdul99th",
+    "auto_update": true
+}
