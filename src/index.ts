@@ -3,9 +3,9 @@ declare var SillyTavern: any;
 export const globalContext = SillyTavern.getContext();
 
 function test() {
-    console.log("Hello, World!");
+    console.log("[Hacks] Hello, World!");
     const ctx = SillyTavern.getContext();
-    console.log(ctx.accountStorage);
+    console.log(`[Hacks] ${ctx.accountStorage}`);
 }
 
 test();
