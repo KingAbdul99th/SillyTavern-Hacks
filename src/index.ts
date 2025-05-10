@@ -93,7 +93,7 @@ function main() {
             }
         )
     );
-    globalContext.buildPrompt = buildPrompt
+    SillyTavern.buildPrompt = buildPrompt
 }
 
 main();
