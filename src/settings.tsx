@@ -12,6 +12,13 @@ const extensionConfig = {
             <b>{extensionConfig.name}</b>
             <div className="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
           </div>
+          <div className="inline-drawer-content">
+            <div className="tracker-block flex-container">
+				      <input id="tracker_enable" type="checkbox" />
+				        <label htmlFor="tracker_enable">Enable Hacks</label>
+			      </div>
+			      <hr className="sysHR" />
+          </div>
         </div>
       </>
     );

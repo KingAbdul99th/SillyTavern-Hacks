@@ -103,7 +103,7 @@ function createSlashCommands() {
 
 function attachReactElement() {
     // Choose the root container for the extension's main UI
-    const rootContainer = document.getElementById("extensions_settings2");
+    const rootContainer = document.getElementById("extensions_settings1");
     const rootElement = document.createElement('div');
     rootContainer?.appendChild(rootElement);
     const root = createRoot(rootElement);
