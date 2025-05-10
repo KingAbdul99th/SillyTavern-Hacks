@@ -16,7 +16,7 @@ module.exports = {
     },
     externalsType: 'module',
     externals: [
-        function({ context, request }, callback) {
+        (context, request , callback) => {
             if (request.includes('../../..')) {
                 // Return the path as an external module import
                 return callback(null, `module ${request}`);
@@ -24,6 +24,13 @@ module.exports = {
             // Continue without externalizing the import
             callback();
         },
+        (context, request, callback) => {
+            if (request.includes("@ST")) {
+                request = request.replace("@ST", "../../../../..");
+                return callback(null, `module ${request}`);
+            }
+            callback();
+          },
     ],
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx'],

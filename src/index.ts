@@ -1,9 +1,9 @@
 // @ts-ignore
-import { substituteParams } from "../../../../../script.js";
+import { substituteParams } from "@ST/script.js";
 // @ts-ignore
-import { formatInstructModeSystemPrompt, formatInstructModeChat, formatInstructModePrompt } from "../../../../../scripts/instruct-mode.js";
+import { formatInstructModeSystemPrompt, formatInstructModeChat, formatInstructModePrompt } from "@ST/scripts/instruct-mode.js";
 // @ts-ignore
-import { adjustNovelInstructionPrompt } from "../../../../../scripts/nai-settings.js";
+import { adjustNovelInstructionPrompt } from "@ST/scripts/nai-settings.js";
 
 declare var SillyTavern: any;
 declare var name1: string, name2: string;
