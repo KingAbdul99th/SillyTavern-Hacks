@@ -1,6 +1,10 @@
 import { substituteParams } from "@ST/script.js";
 import { formatInstructModeSystemPrompt, formatInstructModeChat, formatInstructModePrompt } from "@ST/scripts/instruct-mode.js";
 import { adjustNovelInstructionPrompt } from "@ST/scripts/nai-settings.js";
+import Profile from "./profile.js";
+import { createRoot } from 'react-dom/client';
+import { StrictMode } from "react";
+import React from "react";
 
 declare var SillyTavern: any;
 declare var name1: string, name2: string;
@@ -97,11 +101,26 @@ function createSlashCommands() {
     );
 }
 
+function attachReactElement() {
+    // Choose the root container for the extension's main UI
+    const rootContainer = document.getElementById('extensions_settings');
+    const rootElement = document.createElement('div');
+    rootContainer?.appendChild(rootElement);
+    const root = createRoot(rootElement);
+
+    root.render(
+        <StrictMode>
+            <Profile />
+        </StrictMode>
+    );
+}
+
 function main() {
     console.log("[Hacks] Initialize");
     removeExtrasFromExtensionsBlock();
     SillyTavern.buildPrompt = buildPrompt;
     createSlashCommands();
+    attachReactElement();
 }
 
 main();
