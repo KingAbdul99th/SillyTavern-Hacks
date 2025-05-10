@@ -1,6 +1,41 @@
-declare var SillyTavern: any;
+// @ts-ignore
+import { substituteParams } from "../../../../script.js";
+// @ts-ignore
+import { formatInstructModeSystemPrompt, formatInstructModeChat, formatInstructModePrompt } from "../../../../scripts/instruct-mode.js";
+// @ts-ignore
+import { adjustNovelInstructionPrompt } from "../../../../scripts/nai-settings.js";
 
+declare var SillyTavern: any;
+declare var name1: string, name2: string;
 export const globalContext = SillyTavern.getContext();
+
+
+
+function buildPrompt(
+    text: string,
+    api: string,
+    instructOverride: boolean,
+    quietToLoud: boolean,
+    systemPrompt: string
+) {
+    let prompt = text;
+    let power_user = globalContext.powerUserSettings;
+    const isInstruct = power_user.instruct.enabled && api !== 'openai' && api !== 'novel' && !instructOverride;
+    const isQuiet = true;
+    
+    if (systemPrompt) {
+        systemPrompt = substituteParams(systemPrompt);
+        systemPrompt = isInstruct ? formatInstructModeSystemPrompt(systemPrompt) : systemPrompt;
+        prompt = api === 'openai' ? prompt : `${systemPrompt}\n${prompt}`;
+    }
+
+    prompt = substituteParams(prompt);
+    prompt = api === 'novel' ? adjustNovelInstructionPrompt(prompt) : prompt;
+    prompt = isInstruct ? formatInstructModeChat(name1, prompt, false, true, '', name1, name2, false) : prompt;
+    prompt = isInstruct ? (prompt + formatInstructModePrompt(name2, false, '', name1, name2, isQuiet, quietToLoud)) : (prompt + '\n');
+
+    return prompt;
+}
 
 function main() {
     console.log("[Hacks] Initialize");
@@ -55,7 +90,10 @@ function main() {
                         </ul>
                     </div>
                 `
-            }));
+            }
+        )
+    );
+    globalContext.buildPrompt = buildPrompt
 }
 
 main();
