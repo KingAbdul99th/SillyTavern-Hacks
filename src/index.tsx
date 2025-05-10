@@ -103,16 +103,16 @@ function createSlashCommands() {
 
 function attachReactElement() {
     // Choose the root container for the extension's main UI
-    const rootContainer = document.getElementById("extensions_settings");
-    const rootElement = document.createElement('div');
-    rootContainer?.appendChild(rootElement);
-    const root = createRoot(rootElement);
+    const rootElement = document.getElementById("extensions_settings");
+    if(rootElement) {
+        const root = createRoot(rootElement);
 
-    root.render(
-        <StrictMode>
-            <Profile />
-        </StrictMode>
-    );
+        root.render(
+            <StrictMode>
+                <Profile />
+            </StrictMode>
+        );    
+    }
 }
 
 function main() {
