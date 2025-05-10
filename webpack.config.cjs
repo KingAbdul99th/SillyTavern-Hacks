@@ -16,14 +16,6 @@ module.exports = {
     },
     externalsType: 'module',
     externals: [
-        (context, request , callback) => {
-            if (request.includes('../../..')) {
-                // Return the path as an external module import
-                return callback(null, `module ${request}`);
-            }
-            // Continue without externalizing the import
-            callback();
-        },
         (context, request, callback) => {
             if (request.includes("@ST")) {
                 request = request.replace("@ST", "../../../../..");
