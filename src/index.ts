@@ -37,9 +37,14 @@ function buildPrompt(
     return prompt;
 }
 
-function main() {
-    console.log("[Hacks] Initialize");
+function removeExtrasFromExtensionsBlock() {
+    const extensionsBlock = document.getElementById("rm_extensions_block");
+    const parent = extensionsBlock?.childNodes[1]
+    parent?.removeChild(parent.childNodes[11]);
+    parent?.removeChild(parent.childNodes[9]);
+}
 
+function createSlashCommands() {
     const SlashCommandParser = globalContext.SlashCommandParser;
     const SlashCommand = globalContext.SlashCommand;
     const SlashCommandNamedArgument = globalContext.SlashCommandNamedArgument;
@@ -95,6 +100,11 @@ function main() {
     );
 }
 
+function main() {
+    console.log("[Hacks] Initialize");
+    removeExtrasFromExtensionsBlock();
+    SillyTavern.buildPrompt = buildPrompt;
+    createSlashCommands();
+}
+
 main();
-SillyTavern.buildPrompt = buildPrompt;
-SillyTavern.test = "Hello";
