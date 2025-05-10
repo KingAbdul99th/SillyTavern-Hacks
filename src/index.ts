@@ -93,7 +93,8 @@ function main() {
             }
         )
     );
-    SillyTavern.buildPrompt = buildPrompt
 }
 
 main();
+SillyTavern.buildPrompt = buildPrompt;
+SillyTavern.test = "Hello";
