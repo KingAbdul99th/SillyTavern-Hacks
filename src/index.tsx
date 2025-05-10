@@ -3,7 +3,6 @@ import { formatInstructModeSystemPrompt, formatInstructModeChat, formatInstructM
 import { adjustNovelInstructionPrompt } from "@ST/scripts/nai-settings.js";
 import Profile from "./settings.js";
 import { createRoot } from 'react-dom/client';
-import { StrictMode } from "react";
 import React from "react";
 
 declare var SillyTavern: any;
@@ -108,19 +107,20 @@ function attachReactElement() {
         const root = createRoot(rootElement);
 
         root.render(
-            <StrictMode>
+            <React.StrictMode>
                 <Profile />
-            </StrictMode>
+            </React.StrictMode>
         );    
     }
 }
 
 function main() {
-    console.log("[Hacks] Initialize");
+    console.log("[Hacks] Initialization Started");
     removeExtrasFromExtensionsBlock();
     SillyTavern.buildPrompt = buildPrompt;
     createSlashCommands();
     attachReactElement();
+    console.log("[Hacks] Initialization Finished");
 }
 
 main();
