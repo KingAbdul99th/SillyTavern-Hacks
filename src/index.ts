@@ -1,8 +1,5 @@
-// @ts-ignore
 import { substituteParams } from "@ST/script.js";
-// @ts-ignore
 import { formatInstructModeSystemPrompt, formatInstructModeChat, formatInstructModePrompt } from "@ST/scripts/instruct-mode.js";
-// @ts-ignore
 import { adjustNovelInstructionPrompt } from "@ST/scripts/nai-settings.js";
 
 declare var SillyTavern: any;
