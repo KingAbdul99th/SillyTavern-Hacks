@@ -120,7 +120,7 @@ function main() {
     removeExtrasFromExtensionsBlock();
     SillyTavern.buildPrompt = buildPrompt;
     createSlashCommands();
-    attachReactElement();
+    // attachReactElement();
 }
 
 main();
