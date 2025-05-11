@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 const extensionConfig = {
     name: 'KingAbdul Hacks',
   };
   
   export default function Settings() {
+    const [enabled, setEnabled] = useState(true);
+
+    function handleEnabledClick() {
+      setEnabled(!enabled);
+      console.log("enable toggled ", enabled);
+    }
+
     return (
       <>
         <div id="hacks_settings" className="extension_container">
@@ -15,7 +22,7 @@ const extensionConfig = {
             </div>
             <div className="inline-drawer-content">
               <div className="tracker-block flex-container">
-                <input id="tracker_enable" type="checkbox" />
+                <input id="tracker_enable" type="checkbox" onClick={handleEnabledClick}/>
                   <label htmlFor="tracker_enable">Enable Hacks</label>
               </div>
               <hr className="sysHR" />
