@@ -4,6 +4,7 @@ import { adjustNovelInstructionPrompt } from "@ST/scripts/nai-settings.js";
 import Profile from "./settings.js";
 import { createRoot } from 'react-dom/client';
 import React from "react";
+import './styles/main.scss'; 
 
 declare var SillyTavern: any;
 declare var name1: string, name2: string;
