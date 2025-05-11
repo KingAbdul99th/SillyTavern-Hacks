@@ -1,3 +1,26 @@
+// @import "./vars";
+
+// @mixin flexCenter($direction, $background) {
+//     display: flex;
+//     flex-direction: $direction;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+// @mixin backgroundRed {
+//     background: red;
+// }
+
+// header {
+//     @include flexCenter(column, red);
+//     @include backgroundRed;
+//     font: optional;
+//     button {
+//         background: $primaryBtn;
+//     }
+// }
+
 // div {
-//     font-size: large;
+//     @extend header;
+//     background: blue;
 // }

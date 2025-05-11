@@ -58,6 +58,7 @@ module.exports = {
             },
             {
                 test: /\.s[ac]ss$/i,
+                exclude: /node_modules/,
                 use: [
                     // Creates `style` nodes from JS strings
                     "style-loader",
