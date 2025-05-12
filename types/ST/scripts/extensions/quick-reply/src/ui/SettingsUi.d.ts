@@ -1,0 +1,47 @@
+export class SettingsUi {
+    constructor(settings: QuickReplySettings);
+    /** @type {QuickReplySettings} */ settings: QuickReplySettings;
+    /** @type {HTMLElement} */ template: HTMLElement;
+    /** @type {HTMLElement} */ dom: HTMLElement;
+    /**@type {HTMLInputElement}*/ isEnabled: HTMLInputElement;
+    /**@type {HTMLInputElement}*/ isCombined: HTMLInputElement;
+    /**@type {HTMLInputElement}*/ showPopoutButton: HTMLInputElement;
+    /**@type {HTMLElement}*/ globalSetList: HTMLElement;
+    /**@type {HTMLElement}*/ chatSetList: HTMLElement;
+    /**@type {QuickReplySet}*/ currentQrSet: QuickReplySet;
+    /**@type {HTMLInputElement}*/ disableSend: HTMLInputElement;
+    /**@type {HTMLInputElement}*/ placeBeforeInput: HTMLInputElement;
+    /**@type {HTMLInputElement}*/ injectInput: HTMLInputElement;
+    /**@type {HTMLInputElement}*/ color: HTMLInputElement;
+    /**@type {HTMLInputElement}*/ onlyBorderColor: HTMLInputElement;
+    /**@type {HTMLSelectElement}*/ currentSet: HTMLSelectElement;
+    rerender(): void;
+    unrender(): void;
+    render(): Promise<HTMLElement>;
+    prepareGeneralSettings(): void;
+    prepareGlobalSetList(): void;
+    prepareChatSetList(): void;
+    prepareQrEditor(): void;
+    qrList: Element;
+    onQrSetChange(): void;
+    prepareDom(): void;
+    onIsEnabled(): Promise<void>;
+    onIsCombined(): Promise<void>;
+    onShowPopoutButton(): Promise<void>;
+    onGlobalSetListSort(): Promise<void>;
+    onChatSetListSort(): Promise<void>;
+    updateOrder(list: any): void;
+    onQrListSort(): Promise<void>;
+    deleteQrSet(): Promise<void>;
+    doDeleteQrSet(qrs: any): Promise<void>;
+    renameQrSet(): Promise<void>;
+    addQrSet(): Promise<void>;
+    importQrSet(files: FileList): Promise<void>;
+    importSingleQrSet(file: File): Promise<void>;
+    exportQrSet(): void;
+    duplicateQrSet(): Promise<void>;
+    selectQrSet(qrs: any): void;
+}
+import { QuickReplySettings } from '../QuickReplySettings.js';
+import { QuickReplySet } from '../QuickReplySet.js';
+//# sourceMappingURL=SettingsUi.d.ts.map

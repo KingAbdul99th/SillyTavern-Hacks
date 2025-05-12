@@ -1,0 +1,73 @@
+export namespace enumIcons {
+    let _default: string;
+    export { _default as default };
+    export let variable: string;
+    export let localVariable: string;
+    export let globalVariable: string;
+    export let scopeVariable: string;
+    export let character: string;
+    export let group: string;
+    export let persona: string;
+    export let qr: string;
+    export let closure: string;
+    export let macro: string;
+    export let tag: string;
+    export let world: string;
+    export let preset: string;
+    export let file: string;
+    export let message: string;
+    export let reasoning: string;
+    export let voice: string;
+    export let server: string;
+    export let popup: string;
+    export let image: string;
+    let _true: string;
+    export { _true as true };
+    let _false: string;
+    export { _false as false };
+    let _null: string;
+    export { _null as null };
+    export let undefined: string;
+    export let boolean: string;
+    export let string: string;
+    export let number: string;
+    export let array: string;
+    let _enum: string;
+    export { _enum as enum };
+    export let dictionary: string;
+    export let system: string;
+    export let user: string;
+    export let assistant: string;
+    export let constant: string;
+    export let normal: string;
+    export let disabled: string;
+    export let vectorized: string;
+    export function getStateIcon(state: boolean): string;
+    export function getWiStatusIcon(entry: any): string;
+    export function getRoleIcon(role: extension_prompt_roles): string;
+    export function getDataTypeIcon(type: string): string;
+}
+export namespace commonEnumProviders {
+    export function boolean_1(mode?: ("onOff" | "onOffToggle" | "trueFalse") | null): () => SlashCommandEnumValue[];
+    export { boolean_1 as boolean };
+    export function variables(...type: ("global" | "local" | "scope" | "all")[]): (executor: SlashCommandExecutor, scope: SlashCommandScope) => SlashCommandEnumValue[];
+    export function numbersAndVariables(executor: SlashCommandExecutor, scope: SlashCommandScope): SlashCommandEnumValue[];
+    export function characters(mode?: ("all" | "character" | "group") | null): () => SlashCommandEnumValue[];
+    export function groupMembers(groupId?: string | null): () => SlashCommandEnumValue[];
+    export function personas(): SlashCommandEnumValue[];
+    export function tags(mode?: ("all" | "assigned")): () => SlashCommandEnumValue[];
+    export function tagsForChar(mode?: ("all" | "existing" | "not-existing") | null): () => SlashCommandEnumValue[];
+    export function messages({ allowIdAfter, allowVars }?: {
+        allowIdAfter?: boolean;
+        allowVars?: boolean;
+    }): (executor: SlashCommandExecutor, scope: SlashCommandScope) => SlashCommandEnumValue[];
+    export function messageNames(): SlashCommandEnumValue[];
+    export function worlds(): SlashCommandEnumValue[];
+    export function injects(): SlashCommandEnumValue[];
+    export function types(): SlashCommandEnumValue[];
+}
+export type SlashCommandExecutor = import("./SlashCommandExecutor.js").SlashCommandExecutor;
+export type SlashCommandScope = import("./SlashCommandScope.js").SlashCommandScope;
+import { extension_prompt_roles } from '../../script.js';
+import { SlashCommandEnumValue } from './SlashCommandEnumValue.js';
+//# sourceMappingURL=SlashCommandCommonEnumsProvider.d.ts.map
