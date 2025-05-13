@@ -32,10 +32,10 @@ export default function Settings() {
     removeExtrasFromExtensionsBlock();
   }
 
-  function handleEnabledClick() {
+  async function handleEnabledClick() {
     setSettings({...extensionSettings, enabled: !extensionSettings.enabled});
     console.log("enable toggled ", !extensionSettings.enabled);
-    saveSettingsDebounced();
+    await saveSettingsDebounced();
   }
 
   return (
