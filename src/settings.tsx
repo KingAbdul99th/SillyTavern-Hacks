@@ -33,8 +33,9 @@ export default function Settings() {
   }
 
   async function handleEnabledClick() {
-    setSettings({...extensionSettings, enabled: !extensionSettings.enabled});
-    console.log("enable toggled ", !extensionSettings.enabled);
+    // setSettings({...extensionSettings, enabled: !extensionSettings.enabled});
+    extensionSettingsGlobal.enabled = !extensionSettingsGlobal.enabled;
+    console.log("enable toggled ", extensionSettingsGlobal.enabled);
     await saveSettingsDebounced();
   }
 
