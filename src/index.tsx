@@ -71,6 +71,8 @@ function attachReactElement() {
     if(rootContainer) {
         const rootElement = document.createElement('div');
         rootContainer.appendChild(rootElement);
+        rootElement.className = "extension_container";
+        rootElement.id = "hacks_extension_container";
         const root = createRoot(rootElement);
 
         root.render(

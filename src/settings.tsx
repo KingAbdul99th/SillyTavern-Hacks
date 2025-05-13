@@ -61,22 +61,22 @@ export default function Settings() {
   }
 
   return (
-      <div id="hacks_settings" className="extension_container">
-        <div className="inline-drawer">
-          <div className="inline-drawer-toggle inline-drawer-header">
-            <b>{defaultExtensionSettings.name}</b>
-            <div className="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+    <>
+      <div className="inline-drawer">
+        <div className="inline-drawer-toggle inline-drawer-header">
+          <b>{defaultExtensionSettings.name}</b>
+          <div className="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+        </div>
+        <div className="inline-drawer-content">
+          <div className="hacks-block flex-container">
+            <input id="hacks-enable" type="checkbox" onClick={handleEnabledClick} checked={enabled}/>
+            <label htmlFor="hacks-enable">Enable Hacks</label>
+            <input id="hacks-remove-extras" type="checkbox" onClick={handleRemoveExtrasClick} checked={removeExtras}/>
+            <label htmlFor="hacks-remove-extras">Remove Extras Block</label>
           </div>
-          <div className="inline-drawer-content">
-            <div className="hacks-block flex-container">
-              <input id="hacks-enable" type="checkbox" onClick={handleEnabledClick} checked={enabled}/>
-              <label htmlFor="hacks-enable">Enable Hacks</label>
-              <input id="hacks-remove-extras" type="checkbox" onClick={handleRemoveExtrasClick} checked={removeExtras}/>
-              <label htmlFor="hacks-remove-extras">Remove Extras Block</label>
-            </div>
-            <hr className="sysHR" />
-          </div>
+          <hr className="sysHR" />
         </div>
       </div>
+    </>
   );
 }
