@@ -1,31 +1,15 @@
-import { saveSettingsDebounced } from "@ST/script.js";
-import { extension_settings } from "@ST/scripts/extensions.js";
 import React, { useState } from "react";
+import { getExtensionSettings, setExtensionSettings } from "./extensionSettings.js";
 
 
-const defaultExtensionSettings = {
-  name: 'KingAbdul Hacks',
-  enabled: true,
-  removeExtras: true,
-};
-
-// @ts-expect-error global extension settings
-if (!extension_settings[defaultExtensionSettings.name]) {
-// @ts-expect-error global extensions settings
-  extension_settings[defaultExtensionSettings.name] = defaultExtensionSettings;
-}
-
-// @ts-expect-error global extensions settings
-const extensionSettingsGlobal: defaultExtensionSettings = extension_settings[defaultExtensionSettings.name];
-
-function toggleRemoveExtrasFromExtensionsBlock() {
+function toggleRemoveExtrasFromExtensionsBlock(removeExtras: boolean) {
   const extensionsBlock = document.getElementById("rm_extensions_block");
   const parent = extensionsBlock?.children[0];
   const children = parent?.children as HTMLCollectionOf<HTMLElement>;
   const child1 = children[4];
   const child2 = children[5];
 
-  if(extensionSettingsGlobal.removeExtras) {
+  if(removeExtras) {
     child1.style.display = "none";
     child2.style.display = "none";
   }
@@ -36,27 +20,26 @@ function toggleRemoveExtrasFromExtensionsBlock() {
 }  
 
 export default function Settings() {
-  const [enabled, setEnabled] = useState(extensionSettingsGlobal.enabled);
-  const [removeExtras, setRemoveExtras] = useState(extensionSettingsGlobal.removeExtras);
+  let extensionSettings = getExtensionSettings();
+  const [enabled, setEnabled] = useState(extensionSettings.enabled);
+  const [removeExtras, setRemoveExtras] = useState(extensionSettings.removeExtras);
 
   if(enabled) {
-    toggleRemoveExtrasFromExtensionsBlock();
+    toggleRemoveExtrasFromExtensionsBlock(extensionSettings.removeExtras);
   }
 
   async function handleEnabledClick() {
-    extensionSettingsGlobal.enabled = !extensionSettingsGlobal.enabled;
-    console.log("enable toggled ", extensionSettingsGlobal.enabled);
-    await saveSettingsDebounced();
-    setEnabled(extensionSettingsGlobal.enabled);
+    extensionSettings = setExtensionSettings({...extensionSettings, enabled: !extensionSettings.enabled});
+    console.log("enable toggled ", extensionSettings.enabled);
+    setEnabled(extensionSettings.enabled);
   }
 
   async function handleRemoveExtrasClick() {
-    extensionSettingsGlobal.removeExtras = !extensionSettingsGlobal.removeExtras;
-    console.log("removeExtras toggled ", extensionSettingsGlobal.removeExtras);
-    await saveSettingsDebounced();
-    setRemoveExtras(extensionSettingsGlobal.removeExtras);
+    extensionSettings = setExtensionSettings({...extensionSettings, removeExtras: !extensionSettings.removeExtras});
+    console.log("removeExtras toggled ", extensionSettings.removeExtras);
+    setRemoveExtras(extensionSettings.removeExtras);
     if(enabled) {
-      toggleRemoveExtrasFromExtensionsBlock();
+      toggleRemoveExtrasFromExtensionsBlock(extensionSettings.removeExtras);
     }
   }
 
@@ -64,7 +47,7 @@ export default function Settings() {
     <>
       <div className="inline-drawer">
         <div className="inline-drawer-toggle inline-drawer-header">
-          <b>{defaultExtensionSettings.name}</b>
+          <b>{extensionSettings.name}</b>
           <div className="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
         </div>
         <div className="inline-drawer-content">
