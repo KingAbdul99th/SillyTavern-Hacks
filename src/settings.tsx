@@ -16,6 +16,10 @@ function removeExtrasFromExtensionsBlock() {
 export default function Settings() {
   const [extensionSettings, setSettings] = useState(extensionConfig);
 
+  if(extensionSettings.enabled) {
+    removeExtrasFromExtensionsBlock();
+  }
+
   function handleEnabledClick() {
     setSettings({...extensionSettings, enabled: !extensionSettings.enabled});
     console.log("enable toggled ", extensionSettings.enabled);
