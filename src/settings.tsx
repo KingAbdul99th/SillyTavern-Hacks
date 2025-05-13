@@ -34,11 +34,8 @@ export default function Settings() {
 
   function handleEnabledClick() {
     setSettings({...extensionSettings, enabled: !extensionSettings.enabled});
-    console.log("enable toggled ", extensionSettings.enabled);
+    console.log("enable toggled ", !extensionSettings.enabled);
     saveSettingsDebounced();
-    if(extensionSettings.enabled) {
-      removeExtrasFromExtensionsBlock();
-    }
   }
 
   return (
