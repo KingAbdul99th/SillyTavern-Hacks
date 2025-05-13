@@ -1,5 +1,5 @@
-import { settings } from "@ST/script.js";
 import React, { useState } from "react";
+
 
 const extensionConfig = {
     name: 'KingAbdul Hacks',
@@ -14,12 +14,12 @@ function removeExtrasFromExtensionsBlock() {
 }  
 
 export default function Settings() {
-  const [enabled, setEnabled] = useState(true);
+  const [extensionSettings, setSettings] = useState(extensionConfig);
 
   function handleEnabledClick() {
-    setEnabled(!enabled);
-    console.log("enable toggled ", enabled);
-    if(enabled) {
+    setSettings({...extensionSettings, enabled: !extensionSettings.enabled});
+    console.log("enable toggled ", extensionSettings.enabled);
+    if(extensionSettings.enabled) {
       removeExtrasFromExtensionsBlock();
     }
   }
@@ -34,7 +34,7 @@ export default function Settings() {
           </div>
           <div className="inline-drawer-content">
             <div className="tracker-block flex-container">
-              <input id="tracker_enable" type="checkbox" onClick={handleEnabledClick} checked={enabled}/>
+              <input id="tracker_enable" type="checkbox" onClick={handleEnabledClick} checked={extensionSettings.enabled}/>
                 <label htmlFor="tracker_enable">Enable Hacks</label>
             </div>
             <hr className="sysHR" />
