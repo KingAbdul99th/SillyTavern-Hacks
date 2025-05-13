@@ -17,13 +17,13 @@ function removeExtrasFromExtensionsBlock() {
 }  
 
 export default function Settings() {
-  // @ts-ignore
+  // @ts-expect-error global extensions
   if (!extension_settings[defaultExtensionSettings.name]) {
-    // @ts-ignore
+  // @ts-expect-error global extensions
     extension_settings[defaultExtensionSettings.name] = defaultExtensionSettings;
   }
 
-  // @ts-ignore
+  // @ts-expect-error global extensions
   const extensionSettingsGlobal: defaultExtensionSettings = extension_settings[defaultExtensionSettings.name];
 
   const [enabled, setEnabled] = useState(extensionSettingsGlobal.enabled);

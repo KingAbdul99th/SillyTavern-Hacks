@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { getContext } from "@ST/scripts/extensions.js";
 import Profile from "./settings.js";
 import { createRoot } from 'react-dom/client';
