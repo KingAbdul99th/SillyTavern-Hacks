@@ -1,34 +1,46 @@
+import { settings } from "@ST/script.js";
 import React, { useState } from "react";
 
 const extensionConfig = {
     name: 'KingAbdul Hacks',
+    enabled: true
   };
-  
-  export default function Settings() {
-    const [enabled, setEnabled] = useState(true);
 
-    function handleEnabledClick() {
-      setEnabled(!enabled);
-      console.log("enable toggled ", enabled);
+function removeExtrasFromExtensionsBlock() {
+    const extensionsBlock = document.getElementById("rm_extensions_block");
+    const parent = extensionsBlock?.childNodes[1]
+    parent?.removeChild(parent.childNodes[11]);
+    parent?.removeChild(parent.childNodes[9]);
+}  
+
+export default function Settings() {
+  const [enabled, setEnabled] = useState(true);
+
+  function handleEnabledClick() {
+    setEnabled(!enabled);
+    console.log("enable toggled ", enabled);
+    if(enabled) {
+      removeExtrasFromExtensionsBlock();
     }
+  }
 
-    return (
-      <>
-        <div id="hacks_settings" className="extension_container">
-          <div className="inline-drawer">
-            <div className="inline-drawer-toggle inline-drawer-header">
-              <b>{extensionConfig.name}</b>
-              <div className="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+  return (
+    <>
+      <div id="hacks_settings" className="extension_container">
+        <div className="inline-drawer">
+          <div className="inline-drawer-toggle inline-drawer-header">
+            <b>{extensionConfig.name}</b>
+            <div className="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+          </div>
+          <div className="inline-drawer-content">
+            <div className="tracker-block flex-container">
+              <input id="tracker_enable" type="checkbox" onClick={handleEnabledClick} checked={enabled}/>
+                <label htmlFor="tracker_enable">Enable Hacks</label>
             </div>
-            <div className="inline-drawer-content">
-              <div className="tracker-block flex-container">
-                <input id="tracker_enable" type="checkbox" onClick={handleEnabledClick}/>
-                  <label htmlFor="tracker_enable">Enable Hacks</label>
-              </div>
-              <hr className="sysHR" />
-            </div>
+            <hr className="sysHR" />
           </div>
         </div>
-      </>
-    );
-  }
+      </div>
+    </>
+  );
+}

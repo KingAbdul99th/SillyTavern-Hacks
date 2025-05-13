@@ -7,13 +7,6 @@ import './styles/main.scss';
 // declare var SillyTavern: any;
 export const globalContext = getContext();
 
-function removeExtrasFromExtensionsBlock() {
-    const extensionsBlock = document.getElementById("rm_extensions_block");
-    const parent = extensionsBlock?.childNodes[1]
-    parent?.removeChild(parent.childNodes[11]);
-    parent?.removeChild(parent.childNodes[9]);
-}
-
 function createSlashCommands() {
     const SlashCommandParser = globalContext.SlashCommandParser;
     const SlashCommand = globalContext.SlashCommand;
@@ -89,7 +82,6 @@ function attachReactElement() {
 
 function main() {
     console.log("[Hacks] Initialization Started");
-    removeExtrasFromExtensionsBlock();
     createSlashCommands();
     attachReactElement();
     console.log("[Hacks] Initialization Finished");
