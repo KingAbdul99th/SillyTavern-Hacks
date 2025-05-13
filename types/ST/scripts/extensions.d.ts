@@ -1,3 +1,5 @@
+import { getContext } from './st-context.js';
+
 export function saveMetadataDebounced(): void;
 /**
  * Provides an ability for extensions to render HTML templates synchronously.
@@ -169,9 +171,8 @@ export namespace extension_settings {
             [characterKey: string]: string;
         };
         let sort: string;
-    }
+    };
 }
-import { getContext } from './st-context.js';
 export function getApiUrl(): string;
 /**
  * Default URL for the Extras API.
