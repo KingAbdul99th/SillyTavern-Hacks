@@ -26,9 +26,9 @@ export default function Settings() {
   // @ts-ignore
   const extensionSettingsGlobal: defaultExtensionSettings = extension_settings[defaultExtensionSettings.name];
 
-  const [extensionSettings, setSettings] = useState(extensionSettingsGlobal);
+  const [enabled, setEnabled] = useState(extensionSettingsGlobal.enabled);
 
-  if(extensionSettings.enabled) {
+  if(enabled) {
     removeExtrasFromExtensionsBlock();
   }
 
@@ -37,7 +37,7 @@ export default function Settings() {
     extensionSettingsGlobal.enabled = !extensionSettingsGlobal.enabled;
     console.log("enable toggled ", extensionSettingsGlobal.enabled);
     await saveSettingsDebounced();
-    setSettings(extensionSettingsGlobal);
+    setEnabled(extensionSettingsGlobal.enabled);
   }
 
   return (
@@ -50,7 +50,7 @@ export default function Settings() {
           </div>
           <div className="inline-drawer-content">
             <div className="tracker-block flex-container">
-              <input id="tracker_enable" type="checkbox" onClick={handleEnabledClick} checked={extensionSettings.enabled}/>
+              <input id="tracker_enable" type="checkbox" onClick={handleEnabledClick} checked={enabled}/>
                 <label htmlFor="tracker_enable">Enable Hacks</label>
             </div>
             <hr className="sysHR" />
