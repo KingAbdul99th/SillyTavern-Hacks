@@ -37,6 +37,7 @@ export default function Settings() {
     extensionSettingsGlobal.enabled = !extensionSettingsGlobal.enabled;
     console.log("enable toggled ", extensionSettingsGlobal.enabled);
     await saveSettingsDebounced();
+    setSettings(extensionSettingsGlobal);
   }
 
   return (
