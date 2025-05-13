@@ -1,10 +1,11 @@
+import { SlashCommandClosure } from './SlashCommandClosure.js';
 export class SlashCommandScope {
     constructor(parent: any);
     /** @type {string[]} */ variableNames: string[];
     get allVariableNames(): any;
-    /** @type {object.<string, string|SlashCommandClosure>} */ variables: object<string, string | SlashCommandClosure>;
-    /** @type {object.<string, string|SlashCommandClosure>} */ macros: object<string, string | SlashCommandClosure>;
-    /** @type {{key:string, value:string|SlashCommandClosure}[]} */
+    // /** @type {object.<string, string|SlashCommandClosure>} */ variables: object<string, string | SlashCommandClosure>;
+    // /** @type {object.<string, string|SlashCommandClosure>} */ macros: object<string, string | SlashCommandClosure>;
+    // /** @type {{key:string, value:string|SlashCommandClosure}[]} */
     get macroList(): {
         key: string;
         value: string | SlashCommandClosure;
@@ -25,5 +26,4 @@ export class SlashCommandScopeVariableExistsError extends Error {
 }
 export class SlashCommandScopeVariableNotFoundError extends Error {
 }
-import { SlashCommandClosure } from './SlashCommandClosure.js';
 //# sourceMappingURL=SlashCommandScope.d.ts.map
