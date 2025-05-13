@@ -20,10 +20,10 @@ const extensionSettingsGlobal: defaultExtensionSettings = extension_settings[def
 
 function toggleRemoveExtrasFromExtensionsBlock() {
   const extensionsBlock = document.getElementById("rm_extensions_block");
-  const parent = extensionsBlock?.children[1];
+  const parent = extensionsBlock?.children[0];
   const children = parent?.children as HTMLCollectionOf<HTMLElement>;
-  const child1 = children[11];
-  const child2 = children[9];
+  const child1 = children[4];
+  const child2 = children[5];
 
   if(extensionSettingsGlobal.removeExtras) {
     child1.style.display = "none";
