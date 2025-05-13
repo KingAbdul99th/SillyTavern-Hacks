@@ -37,7 +37,7 @@ function toggleRemoveExtrasFromExtensionsBlock() {
 
 export default function Settings() {
   const [enabled, setEnabled] = useState(extensionSettingsGlobal.enabled);
-  const [removeExtras, setRemoveExtras] = useState(extensionSettingsGlobal.enabled);
+  const [removeExtras, setRemoveExtras] = useState(extensionSettingsGlobal.removeExtras);
 
   if(enabled) {
     toggleRemoveExtrasFromExtensionsBlock();
