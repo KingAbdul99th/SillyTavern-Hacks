@@ -61,7 +61,6 @@ export default function Settings() {
   }
 
   return (
-    <>
       <div id="hacks_settings" className="extension_container">
         <div className="inline-drawer">
           <div className="inline-drawer-toggle inline-drawer-header">
@@ -79,6 +78,5 @@ export default function Settings() {
           </div>
         </div>
       </div>
-    </>
   );
 }
